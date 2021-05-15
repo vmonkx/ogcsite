@@ -5,22 +5,25 @@
  */
 
 // You can delete this file if you're not using it
-const React = require("react")
-require("@fontsource/inter/variable-full.css")
-require("swiper/swiper.min.css")
-const { theme } = require("./src/theme/theme")
-const { ThemeProvider } = require("styled-components")
-const { ModalProvider } = require("./src/contexts/ModalProvider")
-const { GlobalStyle } = require("./src/components/Styled/GlobalStyled")
-const { default: WidgetChat } = require("./src/components/WidgetChat")
+import React from "react";
 
-exports.wrapPageElement = ({ element, props }) => {
+import "@fontsource/inter/variable-full.css";
+import "swiper/swiper.min.css";
+import { theme } from "./src/theme/theme";
+import { ThemeProvider } from "styled-components";
+import { ModalProvider } from "./src/contexts/ModalProvider";
+import { GlobalStyle } from "./src/components/Styled/GlobalStyled";
+import WidgetChat from "./src/components/WidgetChat";
+
+export function wrapPageElement({ element, props }) {
   return (
     <ThemeProvider {...props} theme={theme}>
       <GlobalStyle />
 
       <ModalProvider>{element}</ModalProvider>
+
       <WidgetChat />
     </ThemeProvider>
-  )
+  );
 }
+//gatsby-browser.js

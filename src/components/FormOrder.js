@@ -9,6 +9,7 @@ import styled from "styled-components";
 import InputCheckBox from "./InputCheckBox";
 
 import { LinkStyl } from "./Styled/Link";
+import { useModalWindow } from "../contexts/ModalProvider";
 
 const HeaderModal = styled.h2`
   font-size: 2rem;
@@ -105,6 +106,8 @@ function FormOrder() {
     }
   };
 
+  const { close } = useModalWindow();
+
   useEffect(() => {
     firstInputRef.current.focus();
   }, [firstInputRef]);
@@ -157,7 +160,9 @@ function FormOrder() {
             label={
               <span>
                 Согласен(на) с обработкой персональных данных
-                <LinkStyl to="/docs/privacy">Подробнее</LinkStyl>
+                <LinkStyl to="/docs/privacy" onClick={close}>
+                  Подробнее
+                </LinkStyl>
               </span>
             }
             validate={validateRules}

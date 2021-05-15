@@ -22,6 +22,7 @@ const BannerWrapper = styled.div`
   border-radius: 30px;
   overflow: hidden;
   margin-bottom: 1rem;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 `;
 
 const HeaderArticle = styled.h1`
@@ -67,11 +68,12 @@ const AuthorWrapper = styled.div`
 
     flex-basis: 40%;
     flex-shrink: 0;
+    
+
     transition: transform 2.2s cubic-bezier(0.14, 1.12, 0.67, 0.99) 0s;
-    &::hover {
-      transform: scale(1.03);
-    }
+    
     .gatsby-image-wrapper {
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
       border-radius: 50%;
     }
 
@@ -123,7 +125,10 @@ function ArticleBlog({ article }) {
           <AuthorWrapper>
             <div className="author-image">
               <GatsbyImage
-                image={article.personal.cover?.urlSharp.childImageSharp.gatsbyImageData}
+                image={
+                  article.personal.cover?.urlSharp.childImageSharp
+                    .gatsbyImageData
+                }
                 alt={`Автор статьи ${article.personal.name}`}
               />
             </div>

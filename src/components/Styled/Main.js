@@ -9,7 +9,7 @@ const MainContainer = styled.div`
 `
 
 const Main = styled.main`
-  padding-top: 80px;
+  
   padding-bottom: 80px;
 `
 

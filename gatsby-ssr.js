@@ -12,6 +12,7 @@ const { ThemeProvider } = require("styled-components");
 const { ModalProvider } = require("./src/contexts/ModalProvider");
 const { GlobalStyle } = require("./src/components/Styled/GlobalStyled");
 
+
 exports.onRenderBody = ({ setPostBodyComponents }) => {
   setPostBodyComponents([<div key={"portal"} id={"portal"}></div>]);
 };
@@ -21,6 +22,7 @@ exports.wrapPageElement = ({ element, props }) => {
     <ThemeProvider {...props} theme={theme}>
       <GlobalStyle />
       <ModalProvider>{element}</ModalProvider>
+      
     </ThemeProvider>
   );
 };

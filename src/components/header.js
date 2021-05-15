@@ -1,20 +1,18 @@
+import React from "react";
+import styled from "styled-components";
+import Navbar from "./Navbar";
 
-import React from "react"
-import Navbar from "./Navbar"
+const HeaderStyled = styled.header`
+  position: "fixed";
+  top: 0;
+  width: "100vw";
+  z-index: 100;
+`;
 
 const Header = () => (
-  <header
-    style={{
-      position: "fixed",
-      top: 0,
-      width: "100vw",
-      zIndex: 100,
-    }}
-  >
+  <HeaderStyled>
     <Navbar />
-  </header>
-)
+  </HeaderStyled>
+);
 
-
-
-export default Header
+export default Header;

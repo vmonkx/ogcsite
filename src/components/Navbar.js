@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import logo from "../images/logonew.svg";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import * as styles from "../css/navbar.module.css";
+
 import Container from "./Container";
 import { useModalWindow } from "../contexts/ModalProvider";
 import { ButtonPrimary } from "./Styled/Button";
+import {
+  NavbarStyled,
+  NavLinkStyled,
+  NavListStyled,
+  NavToggleButton,
+} from "./Styled/NavBarStyled";
+import { FaPhoneAlt } from "@react-icons/all-files/fa/FaPhoneAlt";
 
-function Navbar(props) {
+function Navbar() {
   const [isOpen, setNav] = useState();
 
   const result = useStaticQuery(query);
@@ -19,14 +26,14 @@ function Navbar(props) {
 
   const { toggle } = useModalWindow();
   return (
-    <nav className={styles.navbar} role="main">
-      <div className={styles.navBackground}></div>
+    <NavbarStyled role="main">
+      <div className="nav-background"></div>
       <Container>
-        <div className={styles.navContent}>
-          <div className={styles.navWrapLogo}>
+        <div className="nav-content">
+          <div className="nav-wrap-logo">
             <Link to="/" aria-label="Перейти на главную страницу">
               <img
-                className={styles.navLogo}
+                className="nav-logo"
                 src={logo}
                 alt="Логотип клиники OGC clinic"
                 width="130"
@@ -35,45 +42,33 @@ function Navbar(props) {
             </Link>
           </div>
 
-          <ul
-            id="nav__list"
-            className={
-              isOpen
-                ? `${styles.navLinks} ${styles.showNav}`
-                : `${styles.navLinks}`
-            }
-          >
+          <NavListStyled id="nav__list" className={isOpen && "show-nav"}>
             {navigations.map((navigation) => {
               return (
                 <li key={navigation.id}>
-                  <Link
+                  <NavLinkStyled
                     to={`/${navigation.slug}`}
-                    className={`${styles.navLink}`}
-                    activeClassName={`${styles.navLinkActive}`}
+                    activeClassName="nav-link-active"
                     aria-label={`Перейти к ${navigation.name}`}
                   >
                     {navigation.name}
-                  </Link>
+                  </NavLinkStyled>
                 </li>
               );
             })}
             <li>
               <a
-                className={`${styles.navLinkPhone}`}
+                className="nav-link-phone"
                 href="tel:+78432060707"
                 aria-label="Записаться по телефону"
               >
-                8 843 206-07-07
+                <FaPhoneAlt className="icon-phone"/>8 843 206-07-07
               </a>
             </li>
-          </ul>
+          </NavListStyled>
 
-          <button
-            className={
-              isOpen
-                ? `${styles.navToggle} ${styles.showNav}`
-                : `${styles.navToggle}`
-            }
+          <NavToggleButton
+            className={isOpen && "show-nav"}
             title="Открыть/закрыть меню"
             aria-label="Открыть/закрыть меню"
             aria-expanded={isOpen}
@@ -81,21 +76,17 @@ function Navbar(props) {
             onClick={toggleNav}
             type="button"
           >
-            <div aria-hidden="true" className={styles.bar}></div>
-            <div aria-hidden="true" className={styles.bar}></div>
-          </button>
+            <div aria-hidden="true" className="bar"></div>
+            <div aria-hidden="true" className="bar"></div>
+          </NavToggleButton>
           <div>
-            <ButtonPrimary
-              className={styles.navButton}
-              onClick={toggle}
-              aria-label="Записаться"
-            >
+            <ButtonPrimary onClick={toggle} aria-label="Записаться">
               Записаться
             </ButtonPrimary>
           </div>
         </div>
       </Container>
-    </nav>
+    </NavbarStyled>
   );
 }
 

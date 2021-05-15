@@ -1,7 +1,0 @@
-.defaultBanner {
-    min-height: calc(100vh - 80px);
-    background: linear-gradient(rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0.3)), url("../images/intro-desktop.jpg") center/auto no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}

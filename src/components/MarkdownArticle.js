@@ -41,7 +41,7 @@ const WrapperArticle = styled.article`
     display: flex;
 
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
 
     a {
       display: block;
