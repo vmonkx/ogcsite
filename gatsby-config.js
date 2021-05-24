@@ -10,9 +10,9 @@ module.exports = {
     title: `Клиника доктора Горчаковой - OGC clinic`,
     description: `OGC clinic—косметологическая клиника экспертного уровня в Казани,мировые инъекционные и аппаратные технологии премиум-класса (лифтинг),современная диагностика кожи,эстетическая косметология,3D-визуализация`,
     author: `Vladislav`,
-    url: "http://localhost:9000",
+    url: process.env.SITE_URL,
     lang: "ru",
-    siteUrl: `http://localhost:9000`,
+    siteUrl: process.env.SITE_URL,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

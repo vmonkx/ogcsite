@@ -121,7 +121,7 @@ function ContactsInfo() {
               <a
                 className="social-link"
                 aria-label="Инстаграм"
-                href="http://instagram.com/ogcclinic"
+                href="https://instagram.com/ogcclinic"
                 target="_blank"
                 rel="noopener noreferrer"
               >

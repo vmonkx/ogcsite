@@ -13,6 +13,7 @@ const WidgetChatStyled = styled.div`
   bottom: 20px;
   z-index: 2147483647;
   .widget-btn {
+    position: relative;
     width: 60px;
     height: 60px;
     padding: 10px;
@@ -29,6 +30,23 @@ const WidgetChatStyled = styled.div`
 
     /* animation: waves-widget linear 1s infinite; */
     box-shadow: initial;
+    backface-visibility: hidden;
+    &::after {
+      animation: animationBtn 18s linear infinite;
+      transform: scale(0);
+      transform-origin: 50% 50%;
+      content: " ";
+      position: absolute;
+      display: block;
+      border-radius: 100% !important;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: inherit;
+      opacity: 0;
+      transition: opacity 0.15s linear, transform 0.15s linear;
+    }
   }
 
   .widget-icon {
@@ -38,6 +56,7 @@ const WidgetChatStyled = styled.div`
     stroke: none;
     fill-rule: nonzero;
     fill-opacity: 1;
+    z-index: 2147483648;
   }
 
   .widget-links {
@@ -73,23 +92,43 @@ const WidgetChatStyled = styled.div`
     fill-opacity: 1;
   }
 
-  @keyframes waves-widget {
+  @keyframes animationBtn {
     0% {
-      box-shadow: 0 8px 10px rgb(205 2 107 / 30%), 0 0 0 0 rgb(205 2 107 / 20%),
-        0 0 0 0 rgb(205 2 107 / 20%);
+      transform: scale(0);
+      opacity: 0;
     }
-    40% {
-      box-shadow: 0 8px 10px rgb(205 2 107 / 30%),
-        0 0 0 15px rgb(205 2 107 / 20%), 0 0 0 0 rgb(205 2 107 / 20%);
+    73% {
+      transform: scale(0);
+      opacity: 1;
     }
-
     80% {
-      box-shadow: 0 8px 10px rgb(205 2 107 / 30%),
-        0 0 0 30px rgb(205 2 107 / 0%), 0 0 0 26.7px rgb(205 2 107 / 7%);
+      transform: scale(2.6);
+      opacity: 0;
     }
-    100% {
-      box-shadow: 0 8px 10px rgb(205 2 107 / 30%),
-        0 0 0 30px rgb(205 2 107 / 0%), 0 0 0 40px rgb(205 2 107 / 0%);
+    81% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    83% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    90% {
+      transform: scale(2.6);
+      opacity: 0;
+    }
+    91% {
+      transition-duration: 0.01s;
+      transform: scale(0);
+      opacity: 0;
+    }
+    93% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    to {
+      transform: scale(2.6);
+      opacity: 0;
     }
   }
 `;
