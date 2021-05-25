@@ -37,7 +37,7 @@ function Seo({ description, lang, meta, title, cover }) {
   const canonicalUrl = site.siteMetadata?.url + pathname;
   const pageTitle = title || site.siteMetadata?.title;
 
-  console.log("site", defaultLang);
+ 
   return (
     <Helmet
       htmlAttributes={{
