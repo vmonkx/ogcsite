@@ -12,6 +12,7 @@ module.exports = {
     author: `Vladislav`,
     url: process.env.SITE_URL,
     lang: "ru",
+    locale: "ru_RU",
     siteUrl: process.env.SITE_URL,
   },
   plugins: [

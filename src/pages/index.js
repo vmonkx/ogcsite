@@ -13,13 +13,12 @@ import FeaturedPromo from "../components/FeaturedPromo";
 import BackgroundHero from "../components/BackgroundHero";
 import LazyComponent from "../components/LazyComponent";
 
-const IndexPage = ({ location, data }) => {
+const IndexPage = ({ data }) => {
   const { hero, MainAdvantage } = data.strapi.mainPage;
   const { defaultSeo } = data.strapi.global;
   return (
     <Layout>
       <Seo
-        pathname={location.pathname}
         description={defaultSeo.description}
         title={defaultSeo.title}
         lang={defaultSeo.lang}

@@ -8,9 +8,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql,  } from "gatsby";
+import { useLocation } from "@reach/router"
 
-function Seo({ description, lang, meta, title, cover, pathname }) {
+function Seo({ description, lang, meta, title, cover }) {
+
+  const { pathname } = useLocation();
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -20,6 +23,7 @@ function Seo({ description, lang, meta, title, cover, pathname }) {
             description
             author
             url
+            locale
           }
         }
       }
@@ -32,6 +36,8 @@ function Seo({ description, lang, meta, title, cover, pathname }) {
 
   const canonicalUrl = site.siteMetadata?.url + pathname;
   const pageTitle = title || site.siteMetadata?.title;
+
+  console.log("site", defaultLang);
   return (
     <Helmet
       htmlAttributes={{
@@ -69,6 +75,10 @@ function Seo({ description, lang, meta, title, cover, pathname }) {
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          name: `og:locale`,
+          content: site.siteMetadata.locale,
         },
         {
           name: `twitter:card`,

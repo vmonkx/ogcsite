@@ -9,13 +9,14 @@ import Seo from "../components/Seo";
 import CategoryItem from "../components/CategoryItem";
 import { Section } from "../components/Styled/Section";
 
-function ServicesPage({ data }) {
+function ServicesPage({ data, pathname }) {
   const {categories} = data.strapi;
 
   return (
     <Layout>
       <Seo
         title="Наши услуги"
+        
         description="Широкий перечень услуг косметологии, дермтологии, пластической хиургии, уникальные авторские методики, лабораторные исследования."
       />
 
