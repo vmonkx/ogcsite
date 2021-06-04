@@ -8,12 +8,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql,  } from "gatsby";
-import { useLocation } from "@reach/router"
+import { useStaticQuery, graphql } from "gatsby";
+import { useLocation } from "@reach/router";
 
 function Seo({ description, lang, meta, title, cover }) {
-
-  const { pathname } = useLocation();
+  
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -34,10 +33,9 @@ function Seo({ description, lang, meta, title, cover }) {
   const defaultTitle = site.siteMetadata?.title;
   const defaultLang = lang || site.siteMetadata?.lang;
 
-  const canonicalUrl = site.siteMetadata?.url + pathname;
+  
   const pageTitle = title || site.siteMetadata?.title;
 
- 
   return (
     <Helmet
       htmlAttributes={{
@@ -101,12 +99,6 @@ function Seo({ description, lang, meta, title, cover }) {
           content: metaDescription,
         },
       ].concat(meta)}
-      link={[
-        {
-          name: "canonical",
-          href: canonicalUrl,
-        },
-      ]}
     />
   );
 }
