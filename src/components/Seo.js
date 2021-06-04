@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
 
 function Seo({ description, lang, meta, title, cover }) {
-  
+  const { pathname } = useLocation();
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -33,7 +33,7 @@ function Seo({ description, lang, meta, title, cover }) {
   const defaultTitle = site.siteMetadata?.title;
   const defaultLang = lang || site.siteMetadata?.lang;
 
-  
+  const siteUrl = site.siteMetadata?.url + pathname;
   const pageTitle = title || site.siteMetadata?.title;
 
   return (
@@ -68,7 +68,7 @@ function Seo({ description, lang, meta, title, cover }) {
         },
         {
           name: `og:url`,
-          content: canonicalUrl,
+          content: siteUrl,
         },
         {
           property: `og:type`,
