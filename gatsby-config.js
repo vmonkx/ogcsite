@@ -95,6 +95,33 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: process.env.SITE_URL,
+        sitemap: `${process.env.SITE_URL}/sitemap.xml`,
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-htaccess',
+      options: {
+
+        https: true,
+        www: true,
+      
+        host: `www.${process.env.SITE}`, // if 'www' is set to 'false', be sure to also remove it here!
+        redirect: [
+          'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
+          {
+            from: 'gorchakova-clinic.ru',
+            to: process.env.SITE,
+          },
+          
+        ],
+        
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
