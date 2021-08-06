@@ -157,6 +157,7 @@ function WidgetChat() {
         }}
         title="Напишите нам мы онлайн"
         aria-label="Напишите нам мы онлайн"
+        role="button"
         className="widget-btn"
         onClick={toggleShow}
       >
@@ -177,6 +178,7 @@ function WidgetChat() {
               className="widget-link"
               title="Напишите нам в Instagram"
               aria-label="Напишите нам в Instagram"
+              role="button"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.8 }}
               href="https://instagram.com/ogcclinic"
@@ -191,6 +193,7 @@ function WidgetChat() {
               className="widget-link"
               title="Напишите нам Whatsapp"
               aria-label="Напишите нам Whatsapp"
+              role="button"
               href="https://wa.me/79869238872?text=Здравствуйте%21&app_absent=0"
               target="_blank"
               rel="nofollow noopener noreferrer"
@@ -206,6 +209,7 @@ function WidgetChat() {
               className="widget-link"
               title="Напишите нам в Telegram"
               aria-label="Напишите нам в Telegram"
+              role="button"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.8 }}
               href="https://t.me/OGCclinic"
