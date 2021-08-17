@@ -100,7 +100,7 @@ function Seo({ description, lang, meta, title, cover }) {
         },
         {
           name: "yandex-verification",
-          content: "75ab82f1687efcfa"
+          content: "757a2d9dadfc049e"
         }
       ].concat(meta)}
     />
