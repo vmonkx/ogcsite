@@ -13,7 +13,7 @@ function BlogPage({ data, pageContext }) {
 
   return (
     <Layout>
-      <Seo title="Блог OGC clinic" />
+      <Seo title="Блог OGC clinic" description="Новости и главные события OGC clinic" />
       <Section>
         <Container>
           <HeaderService title="Блог" />

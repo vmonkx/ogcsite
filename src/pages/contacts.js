@@ -14,6 +14,7 @@ function Contacts({ data }) {
       <Section>
         <Seo
           title="Наши контакты"
+          description="Сведения о медицинской организации. Контактная информация о Клинике доктора Горчаковой - OGC clinic"
           cover={defaultSeo?.shareImage.urlSharp.childImageSharp.resize.src}
         />
         <HeaderService title="Контакты" />

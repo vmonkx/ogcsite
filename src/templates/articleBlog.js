@@ -12,6 +12,7 @@ function ArticleBlogTemplate({ data, pageContext }) {
       <Seo
         title={pageContext.title}
         cover={getSrc(article.image.urlSharp.childImageSharp.gatsbyImageData)}
+        description={article.description}
       />
 
       <ArticleBlog article={article} />
