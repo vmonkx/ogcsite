@@ -75,22 +75,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        workboxConfig: {
-          globPatterns: ["*.html"],
-          runtimeCaching: [
-            {
-              // page-data.json files, static query results and app-data.json
-              // are not content hashed
-              urlPattern: /^https?:.*\/page-data\/.*\.json/,
-              handler: `NetworkFirst`,
-            },
-          ],
-        },
-      },
-    },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
