@@ -43,6 +43,13 @@ function Seo({ description, lang, meta, title, cover }) {
         lang: defaultLang,
       }}
       title={pageTitle}
+      link={[
+        {
+          rel: "canonical",
+          key: siteUrl,
+          href: siteUrl,
+        },
+      ]}
       titleTemplate={pageTitle ? `%s - ${defaultTitle}` : null}
       meta={[
         {
