@@ -27,3 +27,6 @@ export function wrapPageElement({ element, props }) {
   );
 }
 //gatsby-browser.js
+
+export const onServiceWorkerUpdateReady = async () =>
+  typeof window !== "undefined" && window.location.reload(true);

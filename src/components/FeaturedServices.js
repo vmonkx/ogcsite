@@ -65,7 +65,7 @@ export default FeaturedServices;
 const getFeaturedServices = graphql`
   query {
     strapi {
-      services(where: { featured: true }) {
+      services(where: { featured: true }, sort: "updated_at:desc") {
         id
         slug
         name
