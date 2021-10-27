@@ -33,6 +33,7 @@ function Seo({ description, lang, meta, title, cover }) {
   const defaultTitle = site.siteMetadata?.title;
   const defaultLang = lang || site.siteMetadata?.lang;
 
+  const url = site.siteMetadata?.url;
   const siteUrl = site.siteMetadata?.url + pathname;
   const pageTitle = title || site.siteMetadata?.title;
 
@@ -64,7 +65,7 @@ function Seo({ description, lang, meta, title, cover }) {
         },
         {
           name: `og:image`,
-          content: cover,
+          content: `${url}${cover}`,
         },
         {
           name: `og:url`,
@@ -92,7 +93,7 @@ function Seo({ description, lang, meta, title, cover }) {
         },
         {
           name: `twitter:image`,
-          content: cover,
+          content: `${url}${cover}`,
         },
         {
           name: `twitter:description`,
@@ -100,8 +101,8 @@ function Seo({ description, lang, meta, title, cover }) {
         },
         {
           name: "yandex-verification",
-          content: "757a2d9dadfc049e"
-        }
+          content: "757a2d9dadfc049e",
+        },
       ].concat(meta)}
     />
   );

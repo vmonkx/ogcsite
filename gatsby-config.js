@@ -51,9 +51,7 @@ module.exports = {
       options: {
         typeName: "Strapi",
         fieldName: "strapi",
-        url: `${
-          process.env.API_URL || "http://localhost:1337"
-        }/graphql`,
+        url: `${process.env.API_URL || "http://localhost:1337"}/graphql`,
       },
     },
     {
@@ -64,7 +62,6 @@ module.exports = {
             schemaName: "Strapi",
             typeName: "Strapi_UploadFile",
             fieldName: "url",
-            
           },
         ],
       },
@@ -83,6 +80,14 @@ module.exports = {
       options: {
         workboxConfig: {
           globPatterns: ["*.html"],
+          runtimeCaching: [
+            {
+              // page-data.json files, static query results and app-data.json
+              // are not content hashed
+              urlPattern: /^https?:.*\/page-data\/.*\.json/,
+              handler: `NetworkFirst`,
+            },
+          ],
         },
       },
     },
@@ -96,30 +101,27 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
         host: process.env.SITE_URL,
         sitemap: `${process.env.SITE_URL}/sitemap.xml`,
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
     },
     {
-      resolve: 'gatsby-plugin-htaccess',
+      resolve: "gatsby-plugin-htaccess",
       options: {
-
         https: true,
         www: true,
-      
+
         host: `www.${process.env.SITE}`, // if 'www' is set to 'false', be sure to also remove it here!
         redirect: [
-          'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
+          "RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]",
           {
-            from: 'gorchakova-clinic.ru',
+            from: "gorchakova-clinic.ru",
             to: process.env.SITE,
           },
-          
         ],
-        
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
