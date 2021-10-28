@@ -5,14 +5,39 @@ import Layout from "../components/layout";
 import Seo from "../components/Seo";
 import { getSrc } from "gatsby-plugin-image";
 
-function ArticleBlogTemplate({ data, pageContext }) {
+function ArticleBlogTemplate({ data, pageContext, location }) {
   const { article } = data.strapi;
+
+  const breadCrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@id": `${data.site.siteMetadata?.url}/blog`,
+          name: "Новости клиники",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@id": `${data.site.siteMetadata?.url}${location.pathname}`,
+          name: `${article.title}`,
+        },
+      },
+    ],
+  };
+
   return (
     <Layout>
       <Seo
         title={pageContext.title}
         cover={getSrc(article.image.urlSharp.childImageSharp.gatsbyImageData)}
         description={article.description}
+        breadCrumbSchema={breadCrumbSchema}
       />
 
       <ArticleBlog article={article} />
@@ -66,6 +91,11 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        url
       }
     }
   }

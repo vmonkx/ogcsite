@@ -10,8 +10,9 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
+import logo from "../images/logonew.svg";
 
-function Seo({ description, lang, meta, title, cover }) {
+function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(
     graphql`
@@ -37,6 +38,18 @@ function Seo({ description, lang, meta, title, cover }) {
   const siteUrl = site.siteMetadata?.url + pathname;
   const pageTitle = title || site.siteMetadata?.title;
 
+  const schemaOrg = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: { defaultTitle },
+    logo: `${url}${logo}`,
+    url: { url },
+    sameAs: [
+      "https://www.instagram.com/ogcclinic/",
+      "https://www.youtube.com/channel/UCImB6JGxRVEkkBW1WhzOVUw",
+    ],
+  };
+
   return (
     <Helmet
       htmlAttributes={{
@@ -49,6 +62,10 @@ function Seo({ description, lang, meta, title, cover }) {
           key: siteUrl,
           href: siteUrl,
         },
+        {
+          rel: "image_src",
+          href: `${url}${cover}`,
+        },
       ]}
       titleTemplate={pageTitle ? `%s - ${defaultTitle}` : null}
       meta={[
@@ -59,12 +76,10 @@ function Seo({ description, lang, meta, title, cover }) {
         {
           property: `og:title`,
           content: pageTitle,
-          key: "ogtitle",
         },
         {
           property: `og:site_name`,
           content: site.siteMetadata.description || description,
-          key: "ogsitename",
         },
         {
           property: `og:description`,
@@ -73,6 +88,14 @@ function Seo({ description, lang, meta, title, cover }) {
         {
           name: `og:image`,
           content: `${url}${cover}`,
+        },
+        {
+          name: `og:image:width`,
+          content: 1280,
+        },
+        {
+          name: `og:image:height`,
+          content: 720,
         },
         {
           name: `og:url`,
@@ -88,7 +111,7 @@ function Seo({ description, lang, meta, title, cover }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -111,7 +134,14 @@ function Seo({ description, lang, meta, title, cover }) {
           content: "757a2d9dadfc049e",
         },
       ].concat(meta)}
-    />
+    >
+      <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+      {breadCrumbSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadCrumbSchema)}
+        </script>
+      )}
+    </Helmet>
   );
 }
 

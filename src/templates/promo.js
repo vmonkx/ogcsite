@@ -5,8 +5,32 @@ import PromoSingle from "../components/PromoSingle";
 import Seo from "../components/Seo";
 import { Section } from "../components/Styled/Section";
 
-function promo({data}) {
+function promo({ data, location }) {
   const { promo } = data.strapi;
+  
+
+  const breadCrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@id": `${data.site.siteMetadata?.url}/promo`,
+          name: "Акции",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@id": `${data.site.siteMetadata?.url}${location.pathname}`,
+          name: `${promo.seo?.title}`,
+        },
+      },
+    ],
+  };
 
   return (
     <Layout>
@@ -15,6 +39,7 @@ function promo({data}) {
         description={promo.seo.description}
         meta={promo?.meta}
         cover={promo.seo.shareImage?.urlSharp.childImageSharp.resize.src}
+        breadCrumbSchema={breadCrumbSchema}
       />
       <Section>
         <PromoSingle promo={promo} />
@@ -65,6 +90,11 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        url
       }
     }
   }

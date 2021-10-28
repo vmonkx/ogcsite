@@ -19,6 +19,29 @@ import NavigationBack from "../components/NavigationBack";
 function ServicePageTemplate({ location, pageContext, data }) {
   const { service } = data.strapi;
 
+  const breadCrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@id": `${data.site.siteMetadata?.url}/services`,
+          name: "Услуги",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@id": `${data.site.siteMetadata?.url}${location.pathname}`,
+          name: `${service.seo?.title}`,
+        },
+      },
+    ],
+  };
+
   return (
     <Layout>
       <Seo
@@ -28,6 +51,7 @@ function ServicePageTemplate({ location, pageContext, data }) {
         cover={service.seo?.shareImage?.urlSharp.childImageSharp.resize.src}
         meta={service.seo?.meta}
         pathname={location.pathname}
+        breadCrumbSchema={breadCrumbSchema}
       />
 
       <Section>
@@ -238,6 +262,11 @@ export const query = graphql`
           name
           slug
         }
+      }
+    }
+    site {
+      siteMetadata {
+        url
       }
     }
   }
