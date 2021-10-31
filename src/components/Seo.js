@@ -24,6 +24,7 @@ function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
             author
             url
             locale
+            telephone
           }
         }
       }
@@ -41,14 +42,17 @@ function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
   const schemaOrg = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: { defaultTitle },
+    name: `${defaultTitle}`,
     logo: `${url}${logo}`,
-    url: { url },
+    url: `${url}`,
+    telephone: `${site.siteMetadata.telephone}`,
     sameAs: [
       "https://www.instagram.com/ogcclinic/",
       "https://www.youtube.com/channel/UCImB6JGxRVEkkBW1WhzOVUw",
     ],
   };
+
+  
 
   return (
     <Helmet

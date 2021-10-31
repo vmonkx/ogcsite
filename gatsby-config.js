@@ -13,6 +13,7 @@ module.exports = {
     url: process.env.SITE_URL,
     lang: "ru",
     locale: "ru_RU",
+    telephone: process.env.TELEPHON,
     siteUrl: process.env.SITE_URL,
   },
   plugins: [

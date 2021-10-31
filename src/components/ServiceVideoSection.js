@@ -115,7 +115,7 @@ function ServiceVideoSection({ content, right }) {
             </VideoContent>
             <TextContent right={right}>
               <GridItemHeader>
-                <h3>{content.title}</h3>
+                <h2>{content.title}</h2>
               </GridItemHeader>
               <p>{content.description}</p>
             </TextContent>

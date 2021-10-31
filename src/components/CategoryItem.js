@@ -10,15 +10,22 @@ const CategoryItemWrap = styled.div`
   flex-direction: column;
   overflow: hidden;
   border-radius: 30px;
+
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   &:hover {
     box-shadow: ${(props) => `0 8px 32px 0 ${props.gradientStart}`};
     transition: 0.3s ease-in;
     overflow: hidden;
-    
+
     .category-img {
       transform: scale(1.1);
-      
+    }
+  }
+  a {
+    &:focus {
+      .category-img {
+        transform: scale(1.1);
+      }
     }
   }
 `;
@@ -70,14 +77,13 @@ const CategoryItemStyled = styled(motion.div)`
     position: relative;
     overflow: hidden;
     display: flex;
-    
+
     .category-img {
       flex-grow: 1;
       transition: all 1.2s ease-out;
       overflow: hidden;
       border-top-left-radius: 30px;
       border-top-right-radius: 30px;
-     
     }
 
     .category--img-gradient {
@@ -95,11 +101,9 @@ const CategoryItemStyled = styled(motion.div)`
 `;
 
 function CategoryItem({ name, cover, coverColor, slug }) {
-
-
   return (
-    <CategoryItemWrap gradientStart={coverColor.gradientStart}>
-      <Link to={slug}>
+    <CategoryItemWrap tabIndex={-1} gradientStart={coverColor.gradientStart}>
+      <Link to={slug} tabIndex={0}>
         <CategoryItemStyled
           gradientStart={coverColor.gradientStart}
           gradientEnd={coverColor.gradientEnd}

@@ -1,7 +1,9 @@
 const theme = {
-  primary: "#a19eae",
+  primary: "#767480",
   secondary: "#e30277",
   black: "#393939",
+  primaryButton: "#787391",
+  primaryButtonHover: "rgb(93, 87, 116)",
   lightgrey: "#E1E1E1",
   offWhite: "#EDEDED",
   white: "#fff",

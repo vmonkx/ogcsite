@@ -15,7 +15,7 @@ function GridItemContent(props) {
       }`}
     >
       <GridItemHeader className={`${horizontal && "content-column alter-color"}`}>
-        <h3>{subtitle}</h3>
+        <h2>{subtitle}</h2>
       </GridItemHeader>
       <GridItemTextStyled className={`${horizontal && "content-column content-offset"}`}>
         <ReactMarkdown>{text}</ReactMarkdown>

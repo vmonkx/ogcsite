@@ -11,7 +11,7 @@ const GridItemHeader = styled.div`
     flex-shrink: 0;
   }
 
-  h3 {
+  h2 {
     background-image: linear-gradient(
       20deg,
       rgba(205, 2, 107, 1) 0%,
@@ -25,7 +25,7 @@ const GridItemHeader = styled.div`
   }
 
   &.alter-color {
-    h3 {
+    h2 {
       background-color: #ff3cac;
       background-image: linear-gradient(
         305deg,

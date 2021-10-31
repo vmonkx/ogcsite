@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const ButtonPrimary = styled.button`
   margin: 0;
@@ -16,16 +16,16 @@ const ButtonPrimary = styled.button`
   text-decoration: none;
   transition: 0.1s ease-in-out;
   transition-property: color, background-color, border-color;
-  background-color: #9f9cac;
+  background-color: ${(props) => props.theme.primaryButton};
   cursor: pointer;
   padding: 0.45rem 1rem;
   color: #fff;
-  outline: none;
+  
   &:hover {
-    background-color: rgb(134, 131, 145);
+    background-color: ${(props) => props.theme.primaryButtonHover};
     box-shadow: none;
   }
-`
+`;
 
 const ButtonSecondary = styled(ButtonPrimary)`
   color: #fff;
@@ -41,6 +41,6 @@ const ButtonSecondary = styled(ButtonPrimary)`
       rgba(224, 69, 95, 1) 100%
     );
   }
-`
+`;
 
-export { ButtonPrimary, ButtonSecondary }
+export { ButtonPrimary, ButtonSecondary };

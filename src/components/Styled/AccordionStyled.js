@@ -16,7 +16,7 @@ const AccordionItemStyled = styled.div`
     font-size: 1.2rem;
     background-color: transparent;
     position: relative;
-    color: ${props => props.theme.primaryColor.color400};
+    color: ${props => props.theme.primaryColor.color500};
     font-weight: 500;
     .accordion-icon {
       position: absolute;
@@ -29,9 +29,7 @@ const AccordionItemStyled = styled.div`
     }
   }
 
-  .accordion-button:focus {
-    outline: none;
-  }
+  
 
   .accordion-content {
     padding: 0 20px;

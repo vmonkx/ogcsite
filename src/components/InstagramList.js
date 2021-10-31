@@ -81,7 +81,7 @@ const InstPostLink = styled.a`
   > div img {
     transition: all 0.3s ease 0s !important;
   }
-  &:hover {
+  &:hover, &:focus {
     ${Overlay} {
       opacity: 1;
     }
