@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
 import logo from "../images/logonew.svg";
+import { siteMetadata } from "../../gatsby-config";
 
 function Seo({
   description,
@@ -33,6 +34,8 @@ function Seo({
             url
             locale
             telephone
+            yandexVerf
+            facebookVerf
           }
         }
       }
@@ -144,7 +147,11 @@ function Seo({
         },
         {
           name: "yandex-verification",
-          content: "757a2d9dadfc049e",
+          content: site.siteMetadata.yandexVerf,
+        },
+        {
+          name: "facebook-domain-verification",
+          content: site.siteMetadata.facebookVerf,
         },
         {
           name: "theme-color",

@@ -15,6 +15,8 @@ module.exports = {
     locale: "ru_RU",
     telephone: process.env.TELEPHON,
     siteUrl: process.env.SITE_URL,
+    yandexVerf: process.env.YANDEX_VERF,
+    facebookVerf: process.env.FB_VERF
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
