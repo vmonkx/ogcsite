@@ -26,7 +26,7 @@ function Navbar() {
 
   const { toggle } = useModalWindow();
   return (
-    <NavbarStyled role="main">
+    <NavbarStyled role="navigation">
       <div className="nav-background"></div>
       <Container>
         <div className="nav-content">
@@ -62,7 +62,7 @@ function Navbar() {
                 href="tel:+78432060707"
                 aria-label="Записаться по телефону"
               >
-                <FaPhoneAlt className="icon-phone"/>8 843 206-07-07
+                <FaPhoneAlt className="icon-phone" />8 843 206-07-07
               </a>
             </li>
           </NavListStyled>
@@ -72,6 +72,7 @@ function Navbar() {
             title="Открыть/закрыть меню"
             aria-label="Открыть/закрыть меню"
             aria-expanded={isOpen}
+            role="button"
             aria-controls="nav__list"
             onClick={toggleNav}
             type="button"

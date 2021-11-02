@@ -44,7 +44,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <MainContainer>
-        <Main>{children}</Main>
+        <Main role="main">{children}</Main>
 
         <Modal
           showModal={show}

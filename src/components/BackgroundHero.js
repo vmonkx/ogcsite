@@ -122,7 +122,7 @@ const Img = styled(GatsbyImage)`
 
 function BackgroundHero({ image, title, info }) {
   return (
-    <HeroContainer>
+    <HeroContainer role="banner">
       <Img image={image} alt={`Клиника OGC - ${title} ${info}`} />
       <div className="wrapper">
         <div className="banner">

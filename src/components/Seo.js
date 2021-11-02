@@ -52,8 +52,6 @@ function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
     ],
   };
 
-  
-
   return (
     <Helmet
       htmlAttributes={{
@@ -80,6 +78,7 @@ function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
         {
           property: `og:title`,
           content: pageTitle,
+          itemprop: "name",
         },
         {
           property: `og:site_name`,
@@ -88,21 +87,22 @@ function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
         {
           property: `og:description`,
           content: metaDescription,
+          itemprop: "description",
         },
         {
-          name: `og:image`,
+          property: `og:image`,
           content: `${url}${cover}`,
         },
         {
-          name: `og:image:width`,
+          property: `og:image:width`,
           content: 1280,
         },
         {
-          name: `og:image:height`,
+          property: `og:image:height`,
           content: 720,
         },
         {
-          name: `og:url`,
+          property: `og:url`,
           content: siteUrl,
         },
         {
@@ -110,7 +110,7 @@ function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
           content: `website`,
         },
         {
-          name: `og:locale`,
+          property: `og:locale`,
           content: site.siteMetadata.locale,
         },
         {
@@ -136,6 +136,10 @@ function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
         {
           name: "yandex-verification",
           content: "757a2d9dadfc049e",
+        },
+        {
+          name: "theme-color",
+          content: "#e30277",
         },
       ].concat(meta)}
     >
