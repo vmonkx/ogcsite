@@ -49,6 +49,7 @@ function ServicePageTemplate({ location, pageContext, data }) {
         description={service.seo?.description}
         lang={service.seo?.lang}
         cover={service.seo?.shareImage?.urlSharp.childImageSharp.resize.src}
+        ogtype='article'
         meta={service.seo?.meta}
         pathname={location.pathname}
         breadCrumbSchema={breadCrumbSchema}

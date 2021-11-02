@@ -38,6 +38,7 @@ function ArticleBlogTemplate({ data, pageContext, location }) {
         cover={getSrc(article.image.urlSharp.childImageSharp.gatsbyImageData)}
         description={article.description}
         breadCrumbSchema={breadCrumbSchema}
+        ogtype="article"
       />
 
       <ArticleBlog article={article} />

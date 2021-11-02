@@ -12,7 +12,15 @@ import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
 import logo from "../images/logonew.svg";
 
-function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
+function Seo({
+  description,
+  lang,
+  meta,
+  title,
+  ogtype = "website",
+  cover,
+  breadCrumbSchema,
+}) {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(
     graphql`
@@ -92,14 +100,11 @@ function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
         {
           property: `og:image`,
           content: `${url}${cover}`,
+          itemprop: "image",
         },
         {
-          property: `og:image:width`,
-          content: 1280,
-        },
-        {
-          property: `og:image:height`,
-          content: 720,
+          property: "og:image:type",
+          content: "image/jpeg",
         },
         {
           property: `og:url`,
@@ -107,7 +112,7 @@ function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: ogtype,
         },
         {
           property: `og:locale`,
@@ -132,6 +137,10 @@ function Seo({ description, lang, meta, title, cover, breadCrumbSchema }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: "msapplication-TileImage",
+          content: `${url}${cover}`,
         },
         {
           name: "yandex-verification",
