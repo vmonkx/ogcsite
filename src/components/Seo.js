@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
 import logo from "../images/logonew.svg";
-import { siteMetadata } from "../../gatsby-config";
+
 
 function Seo({
   description,
