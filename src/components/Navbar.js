@@ -81,7 +81,7 @@ function Navbar() {
             <div aria-hidden="true" className="bar"></div>
           </NavToggleButton>
           <div>
-            <ButtonPrimary onClick={toggle} aria-label="Записаться">
+            <ButtonPrimary onClick={toggle} aria-label="Записаться" id="add_to_order">
               Записаться
             </ButtonPrimary>
           </div>

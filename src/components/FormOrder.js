@@ -170,7 +170,7 @@ function FormOrder() {
 
           <br />
 
-          <ButtonPrimary type="submit" disabled={loading}>
+          <ButtonPrimary type="submit" disabled={loading} id="submit_order">
             {loading ? "Отправляем заявку..." : "Отправить"}
           </ButtonPrimary>
         </Form>
