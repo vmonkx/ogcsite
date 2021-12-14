@@ -12,6 +12,7 @@ import {
   NavToggleButton,
 } from "./Styled/NavBarStyled";
 import { FaPhoneAlt } from "@react-icons/all-files/fa/FaPhoneAlt";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 function Navbar() {
   const [isOpen, setNav] = useState();
@@ -62,7 +63,9 @@ function Navbar() {
                 href="tel:+78432060707"
                 aria-label="Записаться по телефону"
               >
-                <FaPhoneAlt className="icon-phone" />8 843 206-07-07
+                <OutboundLink href="tel:+78432060707">
+                  <FaPhoneAlt className="icon-phone" />8 843 206-07-07
+                </OutboundLink>
               </a>
             </li>
           </NavListStyled>
@@ -81,7 +84,11 @@ function Navbar() {
             <div aria-hidden="true" className="bar"></div>
           </NavToggleButton>
           <div>
-            <ButtonPrimary onClick={toggle} aria-label="Записаться" id="add_to_order">
+            <ButtonPrimary
+              onClick={toggle}
+              aria-label="Записаться"
+              id="add_to_order"
+            >
               Записаться
             </ButtonPrimary>
           </div>

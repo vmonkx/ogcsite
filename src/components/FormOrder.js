@@ -61,6 +61,7 @@ function FormOrder() {
 
   const SubmitHandler = async (values) => {
     setLoading(true);
+    typeof window !== "undefined" && window.gtag("event", "send_form_order");
     if (!values.lastName) {
       axios
         .post(
@@ -123,7 +124,6 @@ function FormOrder() {
       <Formik
         initialValues={{ firstName: "", phone: "", comment: "", rules: false }}
         onSubmit={SubmitHandler}
-        
       >
         <Form>
           <InputStyled
