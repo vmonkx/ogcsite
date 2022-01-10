@@ -22,7 +22,7 @@ function LastNews() {
   return (
     <Section>
       <Container>
-        <HeaderSectionStyled>Последнии новости OGCclinic</HeaderSectionStyled>
+        <HeaderSectionStyled>Последние новости OGCclinic</HeaderSectionStyled>
         <ArticleList articles={strapi.articles} />
         <WrapperAction>
           <div className="button-container">

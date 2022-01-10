@@ -92,6 +92,10 @@ export const query = graphql`
             }
           }
         }
+        video {
+          title
+          url
+        }
       }
     }
     site {

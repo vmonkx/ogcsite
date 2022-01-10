@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import Container from "./Container";
 import { Section } from "./Styled/Section";
 import MarkdownArticle from "./MarkdownArticle";
+import Video from "./Video";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -68,10 +69,9 @@ const AuthorWrapper = styled.div`
 
     flex-basis: 40%;
     flex-shrink: 0;
-    
 
     transition: transform 2.2s cubic-bezier(0.14, 1.12, 0.67, 0.99) 0s;
-    
+
     .gatsby-image-wrapper {
       -webkit-mask-image: -webkit-radial-gradient(white, black);
       border-radius: 50%;
@@ -145,6 +145,9 @@ function ArticleBlog({ article }) {
           </BannerWrapper>
 
           <MarkdownArticle article={article.content} />
+          {article.video && (
+            <Video url={article.video.url} title={article.video.title} />
+          )}
         </Wrapper>
       </Container>
     </Section>
