@@ -29,4 +29,12 @@ export function wrapPageElement({ element, props }) {
 //gatsby-browser.js
 
 // trigger an immediate page refresh when an update is found
-
+export const onServiceWorkerUpdateReady = () => {
+  const answer = window.confirm(
+    `Приложение OGC clinic было обновлено. ` +
+      `Хотите перезагрузить страницу чтобы увидеть новую версию?`
+  )
+  if (answer === true) {
+    window.location.reload()
+  }
+}
