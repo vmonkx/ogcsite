@@ -44,5 +44,6 @@
         "react-yandex-maps": "^4.6.0",
         "styled-components": "^5.2.3",
         "swiper": "^6.5.7"
-    }
+    },
+    "devDependencies": {}
 }
