@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FaRegComments } from "@react-icons/all-files/fa/FaRegComments";
 import { FaWhatsapp } from "@react-icons/all-files/fa/FaWhatsapp";
 import { FaTelegramPlane } from "@react-icons/all-files/fa/FaTelegramPlane";
-import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
 import { MdClose } from "@react-icons/all-files/md/MdClose";
 import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
