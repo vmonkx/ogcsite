@@ -176,21 +176,6 @@ function WidgetChat() {
           >
             <motion.a
               className="widget-link"
-              title="Напишите нам в Instagram"
-              aria-label="Напишите нам в Instagram"
-              role="button"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.8 }}
-              href="https://instagram.com/ogcclinic"
-              rel="nofollow noopener noreferrer"
-              target="_blank"
-            >
-              <span>
-                <FaInstagram className="widget-icon__link" />
-              </span>
-            </motion.a>
-            <motion.a
-              className="widget-link"
               title="Напишите нам Whatsapp"
               aria-label="Напишите нам Whatsapp"
               role="button"

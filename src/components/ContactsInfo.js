@@ -4,7 +4,7 @@ import Container from "./Container";
 import { ButtonPrimary } from "./Styled/Button";
 import { LinkStyled } from "./Styled/Link";
 import { FaVk } from "@react-icons/all-files/fa/FaVk";
-import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
+import { FaTelegram } from "@react-icons/all-files/fa/FaTelegram";
 import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
 import { FaFacebookSquare } from "@react-icons/all-files/fa/FaFacebookSquare";
 import { useModalWindow } from "../contexts/ModalProvider";
@@ -120,12 +120,12 @@ function ContactsInfo() {
             <ContactDefinition>
               <a
                 className="social-link"
-                aria-label="Инстаграм"
-                href="https://instagram.com/ogcclinic"
+                aria-label="Телеграм"
+                href="https://t.me/+oLVdYQH2LDplYWQy"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaInstagram aria-hidden="true" />
+                <FaTelegram aria-hidden="true" />
               </a>
               <a
                 className="social-link"
