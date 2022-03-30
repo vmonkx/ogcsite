@@ -2,6 +2,8 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import quote from "../images/quoteBright.svg";
+import rehypeRaw from "rehype-raw";
+import Video from "./Video";
 
 const WrapperArticle = styled.article`
   margin-top: 30px;
@@ -38,11 +40,6 @@ const WrapperArticle = styled.article`
   }
 
   p {
-    display: flex;
-
-    flex-wrap: wrap;
-    justify-content: left;
-
     a {
       display: block;
       position: relative;
@@ -112,17 +109,23 @@ const ImageWrapper = styled.span`
 `;
 
 const renderers = {
-  image: (value) => (
+  img: (value) => (
     <ImageWrapper>
       <img src={value.src} alt={value.alt} />
     </ImageWrapper>
   ),
+  oembed: (value) => <Video url={value.url} />,
 };
+
+
 
 function MarkdownArticle({ article }) {
   return (
     <WrapperArticle quote={quote}>
-      <ReactMarkdown renderers={renderers}>{article}</ReactMarkdown>
+      <ReactMarkdown components={renderers} rehypePlugins={[rehypeRaw]}>
+        {article}
+      </ReactMarkdown>
+     
     </WrapperArticle>
   );
 }

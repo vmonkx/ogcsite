@@ -6,6 +6,7 @@ import NumberedItem from "./NumberedItem";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 import quoteImg from "../images/quoteBright.svg";
+import rehypeRaw from "rehype-raw";
 import ReactMarkdown from "react-markdown";
 
 const AdvantageContainer = styled.div`
@@ -185,7 +186,7 @@ function MainAdvantageItem({ image, title, content, numbers, textPosition }) {
                   </NumberWrapper>
                 )}
                 {content && (
-                  <ReactMarkdown renderers={renderers}>{content}</ReactMarkdown>
+                  <ReactMarkdown components={renderers} rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
                 )}
               </ChildWrapper>
             </ChildContainer>

@@ -1,9 +1,9 @@
-import React from "react"
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Link } from "gatsby"
-
-import ReactMarkdown from "react-markdown"
+import { Link } from "gatsby";
+import rehypeRaw from "rehype-raw";
+import ReactMarkdown from "react-markdown";
 
 const PromoItem = styled.div`
   grid-column: span 12;
@@ -30,7 +30,7 @@ const PromoItem = styled.div`
         border-radius: 30px;
         box-shadow: 0 0 33px rgba(0, 0, 0, 0.05);
         overflow: hidden;
-        transition: ${props => props.theme.imageAnim};
+        transition: ${(props) => props.theme.imageAnim};
       }
     }
 
@@ -39,12 +39,12 @@ const PromoItem = styled.div`
       flex-grow: 10;
       flex-basis: 70%;
       h3 {
-        color: ${props => props.theme.secondary};
+        color: ${(props) => props.theme.secondary};
         font-size: 1.1rem;
         font-weight: 600;
         margin: 0;
         a {
-          color: ${props => props.theme.secondary};
+          color: ${(props) => props.theme.secondary};
         }
       }
     }
@@ -64,7 +64,7 @@ const PromoItem = styled.div`
       }
     }
   }
-`
+`;
 
 function PromoListItem({ promo }) {
   return (
@@ -72,7 +72,10 @@ function PromoListItem({ promo }) {
       <Link to={`/promo/${promo.slug}`}>
         <div className="promo-wrap">
           <div className="promo-cover">
-            <GatsbyImage image={promo.image.urlSharp.childImageSharp.gatsbyImageData} alt={promo.name}/>
+            <GatsbyImage
+              image={promo.image.urlSharp.childImageSharp.gatsbyImageData}
+              alt={promo.name}
+            />
           </div>
           <div className="promo-text">
             <div className="promo-head">
@@ -80,14 +83,16 @@ function PromoListItem({ promo }) {
             </div>
             {promo.description && (
               <div className="promo-descr">
-                <ReactMarkdown>{promo.description}</ReactMarkdown>
+                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                  {promo.description}
+                </ReactMarkdown>
               </div>
             )}
           </div>
         </div>
       </Link>
     </PromoItem>
-  )
+  );
 }
 
-export default PromoListItem
+export default PromoListItem;

@@ -10,10 +10,14 @@ import Pagination from "../components/Pagination";
 
 function BlogPage({ data, pageContext }) {
   const { aggregate, values } = data.strapi.articlesConnection;
-
+  console.log("data", data);
+  console.log("pageContext", pageContext);
   return (
     <Layout>
-      <Seo title="Блог OGC clinic" description="Новости и главные события OGC clinic" />
+      <Seo
+        title="Блог OGC clinic"
+        description="Новости и главные события OGC clinic"
+      />
       <Section>
         <Container>
           <HeaderService title="Блог" />
@@ -34,9 +38,9 @@ function BlogPage({ data, pageContext }) {
 export default BlogPage;
 
 export const query = graphql`
-  query ($start: Int = 0, $pageSize: Int = 2) {
+  query ($skip: Int = 0, $pageSize: Int = 5) {
     strapi {
-      articlesConnection(limit: $pageSize, start: $start) {
+      articlesConnection(limit: $pageSize, start: $skip) {
         aggregate {
           totalCount
         }

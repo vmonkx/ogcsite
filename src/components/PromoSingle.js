@@ -5,6 +5,7 @@ import Container from "../components/Container";
 import HeaderService from "../components/HeaderService";
 import { GatsbyImage } from "gatsby-plugin-image";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 const Hero = styled.div`
   .container {
@@ -103,11 +104,16 @@ function PromoSingle({ promo }) {
       <Hero>
         <div className="container">
           <div className="wrapper-image">
-            <GatsbyImage image={promo.image.urlSharp.childImageSharp.gatsbyImageData} alt={promo.name}/>
+            <GatsbyImage
+              image={promo.image.urlSharp.childImageSharp.gatsbyImageData}
+              alt={promo.name}
+            />
           </div>
           <div className="wrapper-content">
             <HeaderService title={promo.name} />
-            <ReactMarkdown>{promo.article}</ReactMarkdown>
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+              {promo.article}
+            </ReactMarkdown>
           </div>
         </div>
       </Hero>

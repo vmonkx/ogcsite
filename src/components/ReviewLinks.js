@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ButtonPrimary } from "./Styled/Button";
 import { FaGoogle } from "@react-icons/all-files/fa/FaGoogle";
 import { FaYandex } from "@react-icons/all-files/fa/FaYandex";
-import flampIcon from "../images/flamp-icon.svg";
+
 
 const ReviewStyledWrap = styled.div`
   display: grid;

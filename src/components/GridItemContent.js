@@ -1,5 +1,5 @@
 import React from "react"
-
+import rehypeRaw from "rehype-raw";
 import ReactMarkdown from "react-markdown"
 import { GridItemStyled } from "./Styled/GridItemStyled"
 import { GridItemHeader } from "./Styled/GridItemHeader"
@@ -18,7 +18,7 @@ function GridItemContent(props) {
         <h2>{subtitle}</h2>
       </GridItemHeader>
       <GridItemTextStyled className={`${horizontal && "content-column content-offset"}`}>
-        <ReactMarkdown>{text}</ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]}>{text}</ReactMarkdown>
       </GridItemTextStyled>
     </GridItemStyled>
   )

@@ -141,6 +141,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogPageTemplate = path.resolve(`src/templates/articleBlog.js`);
   const docPageTemplate = path.resolve(`src/templates/docPage.js`);
 
+  await turnArticleIntoPages({ graphql, actions });
+
   const { data } = await graphql(`
     query {
       strapi {
