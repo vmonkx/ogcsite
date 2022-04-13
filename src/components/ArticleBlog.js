@@ -20,6 +20,7 @@ const BannerWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
+  
   border-radius: 30px;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -140,6 +141,7 @@ function ArticleBlog({ article }) {
           <BannerWrapper>
             <GatsbyImage
               image={article.image.urlSharp.childImageSharp.gatsbyImageData}
+              
               alt={`Статья - "${article.title}"`}
             />
           </BannerWrapper>

@@ -41,7 +41,6 @@ const WrapperArticle = styled.article`
 
   p {
     a {
-      display: block;
       position: relative;
       user-select: none;
       cursor: pointer;
@@ -86,7 +85,7 @@ const WrapperArticle = styled.article`
   }
 `;
 
-const ImageWrapper = styled.span`
+const ImageWrapper = styled.div`
   display: flex;
   border-radius: 30px;
   margin-bottom: 1rem !important;
@@ -99,11 +98,12 @@ const ImageWrapper = styled.span`
   }
 
   @media screen and (min-width: 769px) {
-    margin: 0;
-
     img {
+      margin: 0 auto;
       width: 100%;
       height: 100%;
+      max-height: 700px;
+      object-fit: cover;
     }
   }
 `;
@@ -117,15 +117,12 @@ const renderers = {
   oembed: (value) => <Video url={value.url} />,
 };
 
-
-
 function MarkdownArticle({ article }) {
   return (
     <WrapperArticle quote={quote}>
       <ReactMarkdown components={renderers} rehypePlugins={[rehypeRaw]}>
         {article}
       </ReactMarkdown>
-     
     </WrapperArticle>
   );
 }

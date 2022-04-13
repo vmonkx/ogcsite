@@ -66,7 +66,11 @@ export const query = graphql`
               gatsbyImageData(
                 layout: CONSTRAINED
                 placeholder: BLURRED
-                width: 1920
+                aspectRatio: 1.7
+                transformOptions: {
+                  fit: CONTAIN,
+                  
+                }
                 formats: [AUTO, WEBP, AVIF]
               )
             }
@@ -92,7 +96,6 @@ export const query = graphql`
             }
           }
         }
-        
       }
     }
     site {
