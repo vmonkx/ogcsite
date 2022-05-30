@@ -61,49 +61,54 @@ function FormOrder() {
 
   const SubmitHandler = async (values) => {
     setLoading(true);
-    typeof window !== "undefined" && window.gtag("event", "send_form_order");
-    if (!values.lastName) {
-      axios
-        .post(
-          `/api/order`,
-          {
-            firstName: values.firstName,
-            comment: values.comment,
-            phone: values.phone,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
+    try {
+      typeof window !== "undefined" && window.gtag("event", "send_form_order");
+    } catch (error) {
+      console.log("gtag", error);
+    } finally {
+      if (!values.lastName) {
+        axios
+          .post(
+            `/api/order`,
+            {
+              firstName: values.firstName,
+              comment: values.comment,
+              phone: values.phone,
             },
-          }
-        )
-        .then((res) => {
-          if (res.status === 200) {
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          )
+          .then((res) => {
+            if (res.status === 200) {
+              setStatus({
+                sent: true,
+                title: "Заявка успешно отправлена",
+                message: "Спасибо, в ближайшее время мы с Вами свяжемся.",
+              });
+            }
+          })
+          .catch((err) => {
             setStatus({
               sent: true,
-              title: "Заявка успешно отправлена",
-              message: "Спасибо, в ближайшее время мы с Вами свяжемся.",
+              title: "Заявка не отправлена",
+              message: `Что-то пошло не так, попробуйте позже или позвоните нам по телефону ${process.env.TELEPHON}.`,
             });
-          }
-        })
-        .catch((err) => {
-          setStatus({
-            sent: true,
-            title: "Заявка не отправлена",
-            message: `Что-то пошло не так, попробуйте позже или позвоните нам по телефону ${process.env.TELEPHON}.`,
+          })
+          .finally(() => {
+            setLoading(false);
           });
-        })
-        .finally(() => {
-          setLoading(false);
+      } else {
+        setStatus({
+          sent: true,
+          title: "Заявка не отправлена",
+          message:
+            "Что-то пошло не так, попробуйте позже или позвоните нам по телефону.",
         });
-    } else {
-      setStatus({
-        sent: true,
-        title: "Заявка не отправлена",
-        message:
-          "Что-то пошло не так, попробуйте позже или позвоните нам по телефону.",
-      });
-      return;
+        return;
+      }
     }
   };
 
