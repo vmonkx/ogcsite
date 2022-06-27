@@ -94,7 +94,7 @@ function FormOrder() {
             setStatus({
               sent: true,
               title: "Заявка не отправлена",
-              message: `Что-то пошло не так, попробуйте позже или позвоните нам по телефону ${process.env.TELEPHON}.`,
+              message: `Что-то пошло не так, попробуйте позже или позвоните нам по телефону ${process.env.GATSBY_PHONE}.`,
             });
           })
           .finally(() => {

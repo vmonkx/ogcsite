@@ -19,17 +19,17 @@ const PriceSectionStyled = styled.div`
 `;
 
 const PriceHeaderWrapper = styled.div`
-  flex-basis: 25%;
-  flex-shrink: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center;
   margin-bottom: 1.2rem;
 
   @media screen and (min-width: 753px) {
     margin-bottom: 0;
+    flex-basis: 25%;
   }
 `;
 
@@ -47,7 +47,7 @@ const PriceHeaderCategory = styled.h2`
   text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  
+
   &::after {
     content: "";
     position: absolute;
@@ -65,7 +65,6 @@ const PriceHeaderCategory = styled.h2`
 const PriceHeaderDescription = styled.span`
   font-size: 1rem;
   color: ${(props) => props.theme.primary};
-  
 `;
 
 const PriceContentWrap = styled.div`
