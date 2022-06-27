@@ -10,8 +10,7 @@ import Pagination from "../components/Pagination";
 
 function BlogPage({ data, pageContext }) {
   const { aggregate, values } = data.strapi.articlesConnection;
-  console.log("data", data);
-  console.log("pageContext", pageContext);
+
   return (
     <Layout>
       <Seo
