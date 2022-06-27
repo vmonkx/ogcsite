@@ -58,15 +58,13 @@ function Navbar() {
               );
             })}
             <li>
-              <a
+              <OutboundLink
                 className="nav-link-phone"
                 href="tel:+78432060707"
                 aria-label="Записаться по телефону"
               >
-                <OutboundLink href="tel:+78432060707">
-                  <FaPhoneAlt className="icon-phone" />8 843 206-07-07
-                </OutboundLink>
-              </a>
+                <FaPhoneAlt className="icon-phone" />8 843 206-07-07
+              </OutboundLink>
             </li>
           </NavListStyled>
 
