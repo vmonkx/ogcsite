@@ -13,7 +13,7 @@ module.exports = {
     url: process.env.SITE_URL,
     lang: "ru",
     locale: "ru_RU",
-    telephone: process.env.TELEPHON,
+    telephone: process.env.GATSBY_PHONE,
     siteUrl: process.env.SITE_URL,
     yandexVerf: process.env.YANDEX_VERF,
     facebookVerf: process.env.FB_VERF,
